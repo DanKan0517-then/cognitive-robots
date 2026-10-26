@@ -1,0 +1,51 @@
+/usr/local/lib/python3.13/dist-packages/pytest_asyncio/plugin.py:207: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform linux -- Python 3.13.16, pytest-8.3.4, pluggy-1.7.0 -- /usr/bin/python
+cachedir: .pytest_cache
+rootdir: /home/claude/cognitive-robots/backend
+configfile: pytest.ini
+plugins: platformdirs-4.12.3, anyio-4.15.1, asyncio-0.25.0
+asyncio: mode=Mode.AUTO, asyncio_default_fixture_loop_scope=None
+collecting ... collected 30 items
+
+app/tests/test_agents_integration.py::test_default_roster_registers_and_starts PASSED [  3%]
+app/tests/test_agents_integration.py::test_a_new_custom_agent_can_be_added_without_code_changes PASSED [  6%]
+app/tests/test_agents_integration.py::test_agent_recovers_after_a_timeout PASSED [ 10%]
+app/tests/test_agents_integration.py::test_failed_execution_triggers_bounded_replan_then_terminal_failure PASSED [ 13%]
+app/tests/test_agents_integration.py::test_mission_and_task_survive_a_simulated_restart PASSED [ 16%]
+app/tests/test_agents_integration.py::test_full_cognitive_cycle_produces_a_completed_task PASSED [ 20%]
+app/tests/test_api_e2e.py::test_health PASSED                            [ 23%]
+app/tests/test_api_e2e.py::test_readiness_reports_registered_agents PASSED [ 26%]
+app/tests/test_api_e2e.py::test_list_agents_returns_real_roster PASSED   [ 30%]
+app/tests/test_api_e2e.py::test_create_update_remove_agent PASSED        [ 33%]
+app/tests/test_api_e2e.py::test_scenarios_are_listed_and_general_purpose PASSED [ 36%]
+app/tests/test_api_e2e.py::test_can_register_a_brand_new_scenario_at_runtime PASSED [ 40%]
+app/tests/test_api_e2e.py::test_scenario_runs_end_to_end_and_mission_log_reconstructs_outcome PASSED [ 43%]
+app/tests/test_api_e2e.py::test_resource_conflict_requires_approval_and_resolves_on_approve PASSED [ 46%]
+app/tests/test_api_e2e.py::test_simulation_pause_resume_reset PASSED     [ 50%]
+app/tests/test_api_e2e.py::test_manual_step_advances_exactly_one_tick PASSED [ 53%]
+app/tests/test_api_e2e.py::test_websocket_receives_snapshot_then_live_events PASSED [ 56%]
+app/tests/test_api_e2e.py::test_no_llm_fallback_is_active_and_still_produces_decisions PASSED [ 60%]
+app/tests/test_api_e2e.py::test_world_endpoint_matches_injected_event PASSED [ 63%]
+app/tests/test_unit_core.py::test_message_requires_dict_payload PASSED   [ 66%]
+app/tests/test_unit_core.py::test_message_requires_valid_enum_type PASSED [ 70%]
+app/tests/test_unit_core.py::test_message_defaults_are_sane PASSED       [ 73%]
+app/tests/test_unit_core.py::test_direct_message_reaches_only_its_recipient PASSED [ 76%]
+app/tests/test_unit_core.py::test_broadcast_reaches_every_subscriber PASSED [ 80%]
+app/tests/test_unit_core.py::test_message_to_unknown_recipient_is_marked_failed PASSED [ 83%]
+app/tests/test_unit_core.py::test_ack_and_timeout PASSED                 [ 86%]
+app/tests/test_unit_core.py::test_history_for_agent_includes_sent_and_received PASSED [ 90%]
+app/tests/test_unit_core.py::test_world_model_upsert_and_snapshot PASSED [ 93%]
+app/tests/test_unit_core.py::test_world_model_flags_implausible_same_tick_jump PASSED [ 96%]
+app/tests/test_unit_core.py::test_world_model_reset_clears_everything PASSED [100%]
+
+=============================== warnings summary ===============================
+../../../../usr/local/lib/python3.13/dist-packages/starlette/testclient.py:40
+  /usr/local/lib/python3.13/dist-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 30 passed, 1 warning in 14.67s ========================

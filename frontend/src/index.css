@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  margin: 0;
+  height: 100%;
+  background: #0b0d12;
+  color: #e5e7eb;
+  font: 14px/1.5 -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #30333d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.react-flow__node {
+  font-size: 11px;
+}
