@@ -4,7 +4,10 @@ import type {
   WorldSnapshot,
 } from '../types';
 
-const BASE = '/api';
+// In dev, Vite proxies '/api' to localhost:8000 (see vite.config.ts). In a
+// production build there is no dev-server proxy, so an absolute backend
+// URL must be baked in at build time via VITE_API_BASE.
+const BASE = import.meta.env.VITE_API_BASE ?? '/api';
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${BASE}${path}`, {

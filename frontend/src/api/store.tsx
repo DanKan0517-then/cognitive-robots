@@ -21,6 +21,11 @@ const MAX_DECISIONS = 300;
 const StoreContext = createContext<StoreState | null>(null);
 
 function wsUrl(): string {
+  // In dev, this host's own /ws is proxied to the backend (see
+  // vite.config.ts). In production there's no proxy, so VITE_WS_BASE must
+  // carry the deployed backend's absolute wss:// URL.
+  const override = import.meta.env.VITE_WS_BASE as string | undefined;
+  if (override) return override;
   const proto = window.location.protocol === 'https:' ? 'wss' : 'ws';
   return `${proto}://${window.location.host}/ws`;
 }
